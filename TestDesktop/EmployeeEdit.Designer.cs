@@ -41,16 +41,18 @@
             this.lblAbout = new System.Windows.Forms.Label();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.GBAddress = new System.Windows.Forms.GroupBox();
-            this.TBCountry = new System.Windows.Forms.TextBox();
-            this.lblCountry = new System.Windows.Forms.Label();
-            this.TBRegion = new System.Windows.Forms.TextBox();
-            this.lblRegion = new System.Windows.Forms.Label();
-            this.TBCity = new System.Windows.Forms.TextBox();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.TBStreetAddress = new System.Windows.Forms.TextBox();
-            this.lblStreetAddress = new System.Windows.Forms.Label();
             this.TBPostalCode = new System.Windows.Forms.TextBox();
             this.lblPostalCode = new System.Windows.Forms.Label();
+            this.TBStreetAddress = new System.Windows.Forms.TextBox();
+            this.lblStreetAddress = new System.Windows.Forms.Label();
+            this.TBCity = new System.Windows.Forms.TextBox();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.TBRegion = new System.Windows.Forms.TextBox();
+            this.lblRegion = new System.Windows.Forms.Label();
+            this.TBCountry = new System.Windows.Forms.TextBox();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.GBAddress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,53 +171,21 @@
             this.GBAddress.TabStop = false;
             this.GBAddress.Text = "Адрес проживания";
             // 
-            // TBCountry
+            // TBPostalCode
             // 
-            this.TBCountry.Location = new System.Drawing.Point(90, 13);
-            this.TBCountry.Name = "TBCountry";
-            this.TBCountry.Size = new System.Drawing.Size(280, 20);
-            this.TBCountry.TabIndex = 13;
+            this.TBPostalCode.Location = new System.Drawing.Point(90, 116);
+            this.TBPostalCode.Name = "TBPostalCode";
+            this.TBPostalCode.Size = new System.Drawing.Size(280, 20);
+            this.TBPostalCode.TabIndex = 21;
             // 
-            // lblCountry
+            // lblPostalCode
             // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.Location = new System.Drawing.Point(6, 16);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(43, 13);
-            this.lblCountry.TabIndex = 12;
-            this.lblCountry.Text = "Страна";
-            // 
-            // TBRegion
-            // 
-            this.TBRegion.Location = new System.Drawing.Point(90, 39);
-            this.TBRegion.Name = "TBRegion";
-            this.TBRegion.Size = new System.Drawing.Size(280, 20);
-            this.TBRegion.TabIndex = 15;
-            // 
-            // lblRegion
-            // 
-            this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(6, 42);
-            this.lblRegion.Name = "lblRegion";
-            this.lblRegion.Size = new System.Drawing.Size(43, 13);
-            this.lblRegion.TabIndex = 14;
-            this.lblRegion.Text = "Регион";
-            // 
-            // TBCity
-            // 
-            this.TBCity.Location = new System.Drawing.Point(90, 65);
-            this.TBCity.Name = "TBCity";
-            this.TBCity.Size = new System.Drawing.Size(280, 20);
-            this.TBCity.TabIndex = 17;
-            // 
-            // lblCity
-            // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(6, 68);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(37, 13);
-            this.lblCity.TabIndex = 16;
-            this.lblCity.Text = "Город";
+            this.lblPostalCode.AutoSize = true;
+            this.lblPostalCode.Location = new System.Drawing.Point(6, 119);
+            this.lblPostalCode.Name = "lblPostalCode";
+            this.lblPostalCode.Size = new System.Drawing.Size(45, 13);
+            this.lblPostalCode.TabIndex = 20;
+            this.lblPostalCode.Text = "Индекс";
             // 
             // TBStreetAddress
             // 
@@ -233,27 +203,79 @@
             this.lblStreetAddress.TabIndex = 18;
             this.lblStreetAddress.Text = "Адрес";
             // 
-            // TBPostalCode
+            // TBCity
             // 
-            this.TBPostalCode.Location = new System.Drawing.Point(90, 116);
-            this.TBPostalCode.Name = "TBPostalCode";
-            this.TBPostalCode.Size = new System.Drawing.Size(280, 20);
-            this.TBPostalCode.TabIndex = 21;
+            this.TBCity.Location = new System.Drawing.Point(90, 65);
+            this.TBCity.Name = "TBCity";
+            this.TBCity.Size = new System.Drawing.Size(280, 20);
+            this.TBCity.TabIndex = 17;
             // 
-            // lblPostalCode
+            // lblCity
             // 
-            this.lblPostalCode.AutoSize = true;
-            this.lblPostalCode.Location = new System.Drawing.Point(6, 119);
-            this.lblPostalCode.Name = "lblPostalCode";
-            this.lblPostalCode.Size = new System.Drawing.Size(45, 13);
-            this.lblPostalCode.TabIndex = 20;
-            this.lblPostalCode.Text = "Индекс";
+            this.lblCity.AutoSize = true;
+            this.lblCity.Location = new System.Drawing.Point(6, 68);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(37, 13);
+            this.lblCity.TabIndex = 16;
+            this.lblCity.Text = "Город";
+            // 
+            // TBRegion
+            // 
+            this.TBRegion.Location = new System.Drawing.Point(90, 39);
+            this.TBRegion.Name = "TBRegion";
+            this.TBRegion.Size = new System.Drawing.Size(280, 20);
+            this.TBRegion.TabIndex = 15;
+            // 
+            // lblRegion
+            // 
+            this.lblRegion.AutoSize = true;
+            this.lblRegion.Location = new System.Drawing.Point(6, 42);
+            this.lblRegion.Name = "lblRegion";
+            this.lblRegion.Size = new System.Drawing.Size(43, 13);
+            this.lblRegion.TabIndex = 14;
+            this.lblRegion.Text = "Регион";
+            // 
+            // TBCountry
+            // 
+            this.TBCountry.Location = new System.Drawing.Point(90, 13);
+            this.TBCountry.Name = "TBCountry";
+            this.TBCountry.Size = new System.Drawing.Size(280, 20);
+            this.TBCountry.TabIndex = 13;
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Location = new System.Drawing.Point(6, 16);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(43, 13);
+            this.lblCountry.TabIndex = 12;
+            this.lblCountry.Text = "Страна";
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(307, 415);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 14;
+            this.btnConfirm.Text = "Сохранить";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(226, 415);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Отмена";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // EmployeeEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 450);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.GBAddress);
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.TBAbout);
@@ -301,5 +323,7 @@
         private System.Windows.Forms.Label lblRegion;
         private System.Windows.Forms.TextBox TBCountry;
         private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

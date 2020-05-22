@@ -61,6 +61,7 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="PublichLocations" />
+    <Folder Include="PostDeployScripts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublichLocations\LocalTestData.publish.xml" />
@@ -69,5 +70,8 @@
     <Build Include="dbo\Tables\Employee.sql" />
     <Build Include="dbo\Tables\Address.sql" />
     <Build Include="dbo\Views\FullEmployee.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployScripts\Script.PostDeployEmployee.sql" />
   </ItemGroup>
 </Project>

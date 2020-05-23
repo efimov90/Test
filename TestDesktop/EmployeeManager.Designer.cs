@@ -119,6 +119,7 @@
             // 
             // Id
             // 
+            this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
@@ -126,18 +127,21 @@
             // 
             // FirstName
             // 
+            this.FirstName.DataPropertyName = "FirstName";
             this.FirstName.HeaderText = "Имя";
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
             // 
             // LastName
             // 
+            this.LastName.DataPropertyName = "LastName";
             this.LastName.HeaderText = "Фамилия";
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
             // 
             // MiddleName
             // 
+            this.MiddleName.DataPropertyName = "MiddleName";
             this.MiddleName.HeaderText = "Отчество";
             this.MiddleName.Name = "MiddleName";
             this.MiddleName.ReadOnly = true;
@@ -145,6 +149,7 @@
             // DateOfBirth
             // 
             this.DateOfBirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DateOfBirth.DataPropertyName = "DateOfBirth";
             this.DateOfBirth.HeaderText = "Дата рождения";
             this.DateOfBirth.Name = "DateOfBirth";
             this.DateOfBirth.ReadOnly = true;
@@ -153,6 +158,7 @@
             // FullAddress
             // 
             this.FullAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FullAddress.DataPropertyName = "FullAddress";
             this.FullAddress.HeaderText = "Адрес проживания";
             this.FullAddress.Name = "FullAddress";
             this.FullAddress.ReadOnly = true;
@@ -160,12 +166,14 @@
             // 
             // Department
             // 
+            this.Department.DataPropertyName = "Department";
             this.Department.HeaderText = "Отдел";
             this.Department.Name = "Department";
             this.Department.ReadOnly = true;
             // 
             // About
             // 
+            this.About.DataPropertyName = "About";
             this.About.HeaderText = "О себе";
             this.About.Name = "About";
             this.About.ReadOnly = true;

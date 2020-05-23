@@ -23,6 +23,8 @@ namespace TestDesktop
             var source = new BindingSource();
             employees = GlobalConfig.Connections[0].GetAllFullEmployees();
             source.DataSource = employees;
+            GVEmployee.AutoGenerateColumns = false;
+
             GVEmployee.DataSource = source;
         }
 

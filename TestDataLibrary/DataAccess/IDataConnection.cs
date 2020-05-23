@@ -5,6 +5,9 @@ using TestDataLibrary.Models;
 
 namespace TestDataLibrary.DataAccess
 {
+    /// <summary>
+    /// Интерфейс обеспечивающий возможность подключения к приложению других прослоек между приложением и данными
+    /// </summary>
     public interface IDataConnection
     {
         EmployeeModel CreateEmployee(EmployeeModel employee);

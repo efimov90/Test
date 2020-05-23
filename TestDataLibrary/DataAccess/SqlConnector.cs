@@ -7,10 +7,18 @@ using TestDataLibrary.Models;
 
 namespace TestDataLibrary.DataAccess
 {
+    /// <summary>
+    /// Прослойка между базой данных и приложением, реализующая операции работы с базой
+    /// </summary>
     class SqlConnector : IDataConnection
     {
         private const string connectionStringName = "TestDesktop.Properties.Settings.TestConnection";
 
+        /// <summary>
+        /// Создает строку в таблице адресов
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public AddressModel CreateAddress(AddressModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -31,6 +39,10 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// Обновляет строку в таблице адресов
+        /// </summary>
+        /// <param name="model"></param>
         public void UpdateAddress(AddressModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -51,6 +63,11 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// Запрашевает в базе строку адреса по идентификатору стотрудника
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns></returns>
         public AddressModel GetAddressByEmployeeId(int employeeId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -78,6 +95,10 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// Удаляет строку адреса по идентификатору сотрудника
+        /// </summary>
+        /// <param name="employeeId"></param>
         public void DeleteAddressByEmployeeId(int employeeId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -91,6 +112,11 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// Создает строку в таблице сотрудников
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public EmployeeModel CreateEmployee(EmployeeModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -111,6 +137,11 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+
+        /// <summary>
+        /// Обновляет строку в таблице сотрудников
+        /// </summary>
+        /// <param name="model"></param>
         public void UpdateEmployee(EmployeeModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -131,6 +162,11 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// Получает строку из таблицы сотрудников по идентификатору
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns></returns>
         public EmployeeModel GetEmployee(int employeeId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -158,6 +194,10 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// Удаляет строку из таблицы сотрудников по идентификатору
+        /// </summary>
+        /// <param name="employeeId"></param>
         public void DeleteEmployee(int employeeId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
@@ -171,6 +211,10 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
+        /// <summary>
+        /// Получает весь список сотрудников в сокращенном виде
+        /// </summary>
+        /// <returns></returns>
         public List<FullEmployee> GetAllFullEmployees()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))

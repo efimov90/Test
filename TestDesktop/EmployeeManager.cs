@@ -56,6 +56,10 @@ namespace TestDesktop
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (GVEmployee.CurrentRow == null)
+            {
+                return;
+            }
             var employeeId = GVEmployee.CurrentRow.Cells["Id"].Value;
             var employee = GlobalConfig.Connections[0].GetEmployee((int)employeeId);
             var address = GlobalConfig.Connections[0].GetAddressByEmployeeId((int)employeeId);
@@ -71,6 +75,10 @@ namespace TestDesktop
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (GVEmployee.CurrentRow == null)
+            {
+                return;
+            }
             var employeeId = GVEmployee.CurrentRow.Cells["Id"].Value;
             DialogResult confirmation = 
                 MessageBox.Show("Вы уверены, что хотите удалить сотрудника: " +

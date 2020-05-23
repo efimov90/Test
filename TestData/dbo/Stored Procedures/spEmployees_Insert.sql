@@ -4,7 +4,7 @@
     @LastName NVARCHAR(50), 
     @DateOfBirth DATE, 
     @Department NVARCHAR(50), 
-    @About TEXT
+    @About NTEXT
 AS
 BEGIN
     SET NOCOUNT ON;

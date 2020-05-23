@@ -6,5 +6,5 @@
     [LastName] NVARCHAR(50) NULL, 
     [DateOfBirth] DATE NOT NULL, 
     [Department] NVARCHAR(50) NULL, 
-    [About] TEXT NULL
+    [About] NTEXT NULL
 )

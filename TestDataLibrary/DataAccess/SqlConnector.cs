@@ -51,7 +51,7 @@ namespace TestDataLibrary.DataAccess
             }
         }
 
-        public AddressModel GetAddresByEmployeeId(int employeeId)
+        public AddressModel GetAddressByEmployeeId(int employeeId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
             {
@@ -75,6 +75,19 @@ namespace TestDataLibrary.DataAccess
                         reader["PostalCode"].ToString()
                         );
                 }
+            }
+        }
+
+        public void DeleteAddressByEmployeeId(int employeeId)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Address WHERE EmployeeId=@Id", connection as SqlConnection);
+                cmd.Parameters.Add(new SqlParameter("@Id", employeeId));
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -142,6 +155,19 @@ namespace TestDataLibrary.DataAccess
                         reader["About"].ToString()
                         );
                 }
+            }
+        }
+
+        public void DeleteEmployee(int employeeId)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Employee WHERE Id=@Id", connection as SqlConnection);
+                cmd.Parameters.Add(new SqlParameter("@Id", employeeId));
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
             }
         }
 

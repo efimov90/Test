@@ -58,13 +58,30 @@ namespace TestDesktop
         {
             var employeeId = GVEmployee.CurrentRow.Cells["Id"].Value;
             var employee = GlobalConfig.Connections[0].GetEmployee((int)employeeId);
-            var address = GlobalConfig.Connections[0].GetAddresByEmployeeId((int)employeeId);
+            var address = GlobalConfig.Connections[0].GetAddressByEmployeeId((int)employeeId);
 
             EmployeeEdit.FillForm(employee, address);
             EmployeeEdit.ShowDialog();
 
             if (EmployeeEdit.DialogResult == DialogResult.OK)
             {
+                refreshEmployees();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var employeeId = GVEmployee.CurrentRow.Cells["Id"].Value;
+            DialogResult confirmation = 
+                MessageBox.Show("Вы уверены, что хотите удалить сотрудника: " +
+                    GVEmployee.CurrentRow.Cells["FirstName"].Value + " " +
+                    GVEmployee.CurrentRow.Cells["LastName"].Value + "?", 
+                    "Удаление сотрудника",
+                    MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
+            {
+                GlobalConfig.Connections[0].DeleteAddressByEmployeeId((int)employeeId);
+                GlobalConfig.Connections[0].DeleteEmployee((int)employeeId);
                 refreshEmployees();
             }
         }

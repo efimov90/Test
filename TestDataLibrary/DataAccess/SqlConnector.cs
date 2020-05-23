@@ -58,22 +58,27 @@ namespace TestDataLibrary.DataAccess
             {
                 List<FullEmployee> listOfModels = new List<FullEmployee>();
 
-                SqlCommand cmd = new SqlCommand("FullEmployee", connection as SqlConnection);
-                cmd.CommandType = CommandType.TableDirect;
+                SqlCommand cmd = new SqlCommand("SELECT * FROM FullEmployee", connection as SqlConnection);
+                cmd.CommandType = CommandType.Text;
+                connection.Open();
 
-                using(SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        listOfModels.Add(new FullEmployee(
-                            (int)reader["Id"],
-                            (string)reader["FirstName"],
-                            (string)reader["MiddleName"],
-                            (string)reader["LastName"],
+                        var t = reader["DateOfBirth"].ToString();
+                        DateTime.Parse(reader["DateOfBirth"].ToString());
+
+                        var e = new FullEmployee(
+                            (int)reader["EmployeeId"],
+                            reader["FirstName"].ToString(),
+                            reader["MiddleName"].ToString(),
+                            reader["LastName"].ToString(),
                             (DateTime)reader["DateOfBirth"],
-                            (string)reader["FullAddress"],
-                            (string)reader["Department"],
-                            (string)reader["About"]));
+                            reader["FullAddress"].ToString(),
+                            reader["Department"].ToString(),
+                            reader["About"].ToString());
+                        listOfModels.Add(e);
                     }
                 }
 

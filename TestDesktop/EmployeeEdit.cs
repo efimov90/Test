@@ -40,14 +40,14 @@ namespace TestDesktop
                         TBPostalCode.Text
                         );
 
-                foreach (IDataConnection db in GlobalConfig.Connections)
-                {
-                    employee = db.CreateEmployee(employee);
+                IDataConnection db = GlobalConfig.Connections[0];
+                
+                employee = db.CreateEmployee(employee);
 
-                    address.EmployeeId = employee.Id;
+                address.EmployeeId = employee.Id;
 
-                    address = db.CreateAddress(address);
-                }
+                address = db.CreateAddress(address);
+                
             }
         }
 

@@ -9,5 +9,6 @@ namespace TestDataLibrary.DataAccess
     {
         EmployeeModel CreateEmployee(EmployeeModel employee);
         AddressModel CreateAddress(AddressModel address);
+        List<FullEmployee> GetAllFullEmployees();
     }
 }

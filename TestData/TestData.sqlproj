@@ -72,6 +72,8 @@
     <Build Include="dbo\Views\FullEmployee.sql" />
     <Build Include="dbo\Stored Procedures\spEmployees_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spAddresses_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spAddresses_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spEmployees_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployScripts\Script.PostDeployEmployee.sql" />

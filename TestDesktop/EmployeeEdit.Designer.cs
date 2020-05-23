@@ -253,6 +253,7 @@
             // 
             // btnConfirm
             // 
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirm.Location = new System.Drawing.Point(307, 415);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
@@ -263,6 +264,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(226, 415);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -290,8 +292,10 @@
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.TBFirstName);
             this.Controls.Add(this.lblFirstName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EmployeeEdit";
-            this.Text = "EmployeeEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Создать сотрудника";
             this.GBAddress.ResumeLayout(false);
             this.GBAddress.PerformLayout();
             this.ResumeLayout(false);

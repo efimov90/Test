@@ -9,8 +9,9 @@
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+/*
 IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE FirstName = 'Demo' AND LastName = 'User')
 BEGIN
     INSERT INTO dbo.Employee (FirstName, LastName)
     VALUES ('Demo', 'User');
-END
+END*/

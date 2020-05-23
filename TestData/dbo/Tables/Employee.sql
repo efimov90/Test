@@ -4,7 +4,7 @@
     [FirstName] NVARCHAR(50) NULL, 
     [MiddleName] NVARCHAR(50) NULL, 
     [LastName] NVARCHAR(50) NULL, 
-    [DateOfBirth] DATE NULL, 
+    [DateOfBirth] DATE NOT NULL, 
     [Department] NVARCHAR(50) NULL, 
     [About] TEXT NULL
 )

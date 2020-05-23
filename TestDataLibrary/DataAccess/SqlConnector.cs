@@ -9,9 +9,11 @@ namespace TestDataLibrary.DataAccess
 {
     class SqlConnector : IDataConnection
     {
+        private const string connectionStringName = "TestDesktop.Properties.Settings.TestConnection";
+
         public AddressModel CreateAddress(AddressModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString("TestDesktop.Properties.Settings.TestConnection")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
             {
                 
                 SqlCommand cmd = new SqlCommand("spAddresses_Insert", connection as SqlConnection);
@@ -32,7 +34,7 @@ namespace TestDataLibrary.DataAccess
 
         public EmployeeModel CreateEmployee(EmployeeModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString("TestDesktop.Properties.Settings.TestConnection")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
             {
                 SqlCommand cmd = new SqlCommand("spEmployees_Insert", connection as SqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -47,6 +49,35 @@ namespace TestDataLibrary.DataAccess
                 connection.Open();
                 model.Id = (Int32)cmd.ExecuteScalar();
                 return model;
+            }
+        }
+
+        public List<FullEmployee> GetAllFullEmployees()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(connectionStringName)))
+            {
+                List<FullEmployee> listOfModels = new List<FullEmployee>();
+
+                SqlCommand cmd = new SqlCommand("FullEmployee", connection as SqlConnection);
+                cmd.CommandType = CommandType.TableDirect;
+
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        listOfModels.Add(new FullEmployee(
+                            (int)reader["Id"],
+                            (string)reader["FirstName"],
+                            (string)reader["MiddleName"],
+                            (string)reader["LastName"],
+                            (DateTime)reader["DateOfBirth"],
+                            (string)reader["FullAddress"],
+                            (string)reader["Department"],
+                            (string)reader["About"]));
+                    }
+                }
+
+                return listOfModels;
             }
         }
     }

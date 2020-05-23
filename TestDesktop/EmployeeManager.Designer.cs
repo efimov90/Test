@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -42,10 +41,8 @@
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.About = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fullEmployeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -176,7 +173,6 @@
             this.Load += new System.EventHandler(this.EmployeeManager_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GVEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fullEmployeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,7 +181,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView GVEmployee;
-        private System.Windows.Forms.BindingSource fullEmployeeBindingSource;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;

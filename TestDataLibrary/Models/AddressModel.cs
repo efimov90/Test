@@ -14,8 +14,9 @@ namespace TestDataLibrary.Models
         public string StreetAddress { get; set; }
         public string PostalCode { get; set; }
 
-        public AddressModel(int EmployeeId, string Country, string Region, string City, string StreetAddress, string PostalCode)
+        public AddressModel(int Id, int EmployeeId, string Country, string Region, string City, string StreetAddress, string PostalCode)
         {
+            this.Id = Id;
             this.EmployeeId = EmployeeId;
             this.Country = Country;
             this.Region = Region;

@@ -23,5 +23,16 @@ namespace TestDataLibrary.Models
             this.Department = Department;
             this.About = About;
         }
+
+        public EmployeeModel(int Id, string FirstName, string MiddleName, string LastName, DateTime DateOfBirth, string Department, string About)
+        {
+            this.Id = Id;
+            this.FirstName = FirstName;
+            this.MiddleName = MiddleName;
+            this.LastName = LastName;
+            this.DateOfBirth = DateOfBirth;
+            this.Department = Department;
+            this.About = About;
+        }
     }
 }

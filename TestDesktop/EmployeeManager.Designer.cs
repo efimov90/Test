@@ -35,7 +35,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.GVEmployee = new System.Windows.Forms.DataGridView();
-            this.fullEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +42,7 @@
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.About = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullEmployeeBindingSource)).BeginInit();
@@ -96,6 +96,7 @@
             this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Создать";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // GVEmployee
             // 

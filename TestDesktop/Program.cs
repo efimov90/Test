@@ -16,6 +16,9 @@ namespace TestDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Initialize the database connections
+            TestDataLibrary.GlobalConfig.InitializeConnections();
             Application.Run(new EmployeeManager());
         }
     }

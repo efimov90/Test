@@ -259,6 +259,7 @@
             this.btnConfirm.TabIndex = 14;
             this.btnConfirm.Text = "Сохранить";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 

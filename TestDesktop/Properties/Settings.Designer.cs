@@ -28,9 +28,9 @@ namespace TestDesktop.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TestData;Integrated Security=T" +
             "rue")]
-        public string TestDataConnectionString {
+        public string TestConnection {
             get {
-                return ((string)(this["TestDataConnectionString"]));
+                return ((string)(this["TestConnection"]));
             }
         }
     }

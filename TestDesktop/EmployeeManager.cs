@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestDataLibrary;
 
 namespace TestDesktop
 {
     public partial class EmployeeManager : Form
     {
+        private EmployeeEdit EmployeeEdit = new EmployeeEdit();
         public EmployeeManager()
         {
             InitializeComponent();
@@ -25,6 +27,11 @@ namespace TestDesktop
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            EmployeeEdit.Show();
         }
     }
 }

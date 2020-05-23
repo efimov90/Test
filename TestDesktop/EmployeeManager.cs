@@ -16,16 +16,12 @@ namespace TestDesktop
     public partial class EmployeeManager : Form
     {
         private EmployeeEdit EmployeeEdit = new EmployeeEdit();
-        private List<FullEmployee> employees;
+        private List<FullEmployee> Employees;
         public EmployeeManager()
         {
             InitializeComponent();
-            var source = new BindingSource();
-            employees = GlobalConfig.Connections[0].GetAllFullEmployees();
-            source.DataSource = employees;
             GVEmployee.AutoGenerateColumns = false;
-
-            GVEmployee.DataSource = source;
+            refreshEmployees();
         }
 
         private void EmployeeManager_Load(object sender, EventArgs e)
@@ -35,12 +31,21 @@ namespace TestDesktop
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            
+            refreshEmployees();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             EmployeeEdit.Show();
+        }
+
+        private void refreshEmployees()
+        {
+            BindingSource DataBindingSource = new BindingSource();
+
+            Employees = GlobalConfig.Connections[0].GetAllFullEmployees();
+            DataBindingSource.DataSource = Employees;
+            GVEmployee.DataSource = DataBindingSource;
         }
     }
 }

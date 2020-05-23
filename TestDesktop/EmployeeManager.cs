@@ -15,8 +15,11 @@ namespace TestDesktop
 {
     public partial class EmployeeManager : Form
     {
+        // Форма редактирования сотрудника
         private EmployeeEdit EmployeeEdit = new EmployeeEdit();
+        // Список сотрудников в упрощенном виде
         private List<FullEmployee> Employees;
+
         public EmployeeManager()
         {
             InitializeComponent();
@@ -45,6 +48,9 @@ namespace TestDesktop
             }
         }
 
+        /// <summary>
+        /// Функция обновления записей в GridView
+        /// </summary>
         private void refreshEmployees()
         {
             BindingSource DataBindingSource = new BindingSource();
@@ -60,6 +66,7 @@ namespace TestDesktop
             {
                 return;
             }
+
             var employeeId = GVEmployee.CurrentRow.Cells["Id"].Value;
             var employee = GlobalConfig.Connections[0].GetEmployee((int)employeeId);
             var address = GlobalConfig.Connections[0].GetAddressByEmployeeId((int)employeeId);
@@ -79,13 +86,16 @@ namespace TestDesktop
             {
                 return;
             }
+
             var employeeId = GVEmployee.CurrentRow.Cells["Id"].Value;
+
             DialogResult confirmation = 
                 MessageBox.Show("Вы уверены, что хотите удалить сотрудника: " +
                     GVEmployee.CurrentRow.Cells["FirstName"].Value + " " +
                     GVEmployee.CurrentRow.Cells["LastName"].Value + "?", 
                     "Удаление сотрудника",
                     MessageBoxButtons.YesNo);
+
             if (confirmation == DialogResult.Yes)
             {
                 GlobalConfig.Connections[0].DeleteAddressByEmployeeId((int)employeeId);

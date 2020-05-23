@@ -15,6 +15,7 @@ namespace TestDesktop
 {
     public partial class EmployeeEdit : Form
     {
+        // Идентификаторы записей в источнике данных
         private int EmployeeId = 0;
         private int AddressId = 0;
 
@@ -23,10 +24,16 @@ namespace TestDesktop
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Кнопка подтверждения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (ValidateForm())
             {
+                // Создание сотрудника и адреса на основе данных формы
                 EmployeeModel employee = new EmployeeModel(
                                         TBFirstName.Text,
                                         TBMiddleName.Text,
@@ -50,13 +57,16 @@ namespace TestDesktop
                     employee.Id = this.EmployeeId;
                     address.Id = this.AddressId;
                     address.EmployeeId = this.EmployeeId;
+
                     db.UpdateEmployee(employee);
                     db.UpdateAddress(address);
                 }
                 else
                 {
                     employee = db.CreateEmployee(employee);
+
                     address.EmployeeId = employee.Id;
+
                     db.CreateAddress(address);
                 }
                 
@@ -68,6 +78,7 @@ namespace TestDesktop
             // Имя и фамилия в заголовке
             this.Text = employee.FirstName + employee.LastName;
 
+            // Заполнение идентификаторов
             this.EmployeeId = employee.Id;
             this.AddressId = address.Id;
 
@@ -92,6 +103,7 @@ namespace TestDesktop
             // Стандартный текст
             this.ResetText();
 
+            // Очистка идентификаторов
             this.EmployeeId = 0;
             this.AddressId = 0;
 
@@ -111,6 +123,10 @@ namespace TestDesktop
             TBPostalCode.Text = "";
         }
 
+        /// <summary>
+        /// Валидация данных формы
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateForm()
         {
             bool output = true;

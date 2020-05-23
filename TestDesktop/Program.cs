@@ -17,8 +17,9 @@ namespace TestDesktop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Initialize the database connections
+            // Инициализация подключений к источникам данных
             TestDataLibrary.GlobalConfig.InitializeConnections();
+
             Application.Run(new EmployeeManager());
         }
     }

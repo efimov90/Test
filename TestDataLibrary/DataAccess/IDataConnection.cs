@@ -10,5 +10,9 @@ namespace TestDataLibrary.DataAccess
         EmployeeModel CreateEmployee(EmployeeModel employee);
         AddressModel CreateAddress(AddressModel address);
         List<FullEmployee> GetAllFullEmployees();
+        EmployeeModel GetEmployee(int employeeId);
+        AddressModel GetAddresByEmployeeId(int employeeId);
+        void UpdateEmployee(EmployeeModel employee);
+        void UpdateAddress(AddressModel address);
     }
 }

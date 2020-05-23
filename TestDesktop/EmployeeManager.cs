@@ -36,7 +36,13 @@ namespace TestDesktop
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            EmployeeEdit.Show();
+            EmployeeEdit.EmptyForm();
+            EmployeeEdit.ShowDialog();
+
+            if (EmployeeEdit.DialogResult == DialogResult.OK)
+            {
+                refreshEmployees();
+            }
         }
 
         private void refreshEmployees()
@@ -46,6 +52,21 @@ namespace TestDesktop
             Employees = GlobalConfig.Connections[0].GetAllFullEmployees();
             DataBindingSource.DataSource = Employees;
             GVEmployee.DataSource = DataBindingSource;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var employeeId = GVEmployee.CurrentRow.Cells["Id"].Value;
+            var employee = GlobalConfig.Connections[0].GetEmployee((int)employeeId);
+            var address = GlobalConfig.Connections[0].GetAddresByEmployeeId((int)employeeId);
+
+            EmployeeEdit.FillForm(employee, address);
+            EmployeeEdit.ShowDialog();
+
+            if (EmployeeEdit.DialogResult == DialogResult.OK)
+            {
+                refreshEmployees();
+            }
         }
     }
 }
